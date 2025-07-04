@@ -1,0 +1,18 @@
+.card-primary.card-outline {
+    border-top-width: 3px;
+    border-top-style: solid;
+    border-top-color: #7E5137;
+}
+
+.btn-primary{
+    background-color: #7E5137;
+    border-color: #7E5137;
+}
+
+a{
+    color: rgb(59, 30, 39);
+}
+
+.login-page{
+    background-color: #F1E8E3;
+}

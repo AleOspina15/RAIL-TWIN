@@ -1,0 +1,82 @@
+volumes:
+    postgres-data:
+    geoserver-data:
+networks:
+    frontend:
+    backend:
+services:
+    proxy:
+        image: nginx:latest
+        hostname: proxy
+        restart: always
+        ports:
+#            - "4001:80"
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./:/var/www/app
+            - ./docker/nginx/nginx-site.conf:/etc/nginx/conf.d/default.conf
+
+        networks:
+            - frontend
+            - backend
+    php:
+        build:
+            context: ./docker/php
+            dockerfile: Dockerfile
+        image: aicedrone-sdi:latest
+        hostname: php
+        restart: always
+        volumes:
+            - ./:/var/www/app
+            - ./docker/php/aicedronesdi_filemanager:/var/www/aicedronesdi_filemanager
+            - ./docker/php/docker-fpm.ini:/usr/local/etc/php/conf.d/docker-fpm.ini
+            - /var/run/docker.sock:/var/run/docker.sock
+        networks:
+            - backend
+    postgres:
+        image: kartoza/postgis:14-3.3
+        hostname: postgres
+        restart: always
+        volumes:
+            - ./docker/postgresql/data:/var/lib/postgresql
+            - ./docker/postgresql/backups:/var/backups
+        ports:
+            - "5433:5432"
+        environment:
+            - POSTGRES_PASS=${DB_PASSWORD}
+            - POSTGRES_USER=postgres
+            - POSTGRES_DB=${DB_DATABASE}
+            - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore,postgis_topology,postgis_raster,pgrouting
+        networks:
+            - backend
+    geoserver:
+        image: kartoza/geoserver:2.26.1
+        hostname: geoserver
+        restart: always
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./docker/geoserver:/opt/geoserver/data_dir
+            - ./docker/geoserver/data:/opt/geoserver/data_dir/data
+        environment:
+            GEOSERVER_DATA_DIR: /opt/geoserver/data_dir
+            GEOSERVER_ADMIN_USER: admin
+            GEOSERVER_ADMIN_PASSWORD: ${GS_PASSWORD}
+            STABLE_EXTENSIONS: sldservice-plugin,feature-pregeneralized-plugin,css-plugin,importer-plugin
+            INITIAL_MEMORY: 2G
+            MAXIMUM_MEMORY: 4G
+        networks:
+            - backend
+    potreeconverter:
+        build:
+            context: ./docker/potreeconverter
+            dockerfile: Dockerfile
+        image: potreeconverter:latest
+        container_name: potreeconverter
+        hostname: potreeconverter
+        volumes:
+            - ./public/potree:/data/input:rw
+            - ./public/potree:/data/output:rw
+        networks:
+            - backend

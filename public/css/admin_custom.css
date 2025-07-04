@@ -1,0 +1,100 @@
+.btn-datatable {
+    color: white !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+/*
+
+ */
+
+.sidebar-dark-cyan .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-cyan .nav-sidebar > .nav-item > .nav-link.active {
+    background-color: #910622;
+    color: #fff;
+}
+
+[class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active, [class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active:focus, [class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active:hover {
+    background-color: #910622;
+    color: #fff;
+}
+
+.elemento-sidebar-principal {
+    /*color:white !important;*/
+    margin-left: 0px !important;
+    padding-right: 5px !important;
+}
+
+.elemento-sidebar-secundario {
+    /*color:white !important;*/
+    margin-left: 10px !important;
+    padding-right: 5px !important;
+}
+
+.navbar-dark{
+    background-color: #8F0621;
+}
+.layout-navbar-fixed .wrapper .sidebar-dark-cyan .brand-link:not([class*="navbar"]){
+    background-color: #F1E8E3;
+}
+
+brand-link .brand-image{
+    float: right;
+}
+
+[class*="sidebar-dark-"]{
+    background-color: #F1E8E3;
+}
+
+.brand-link .brand-image{
+    margin-left: 0;
+}
+
+.nav-sidebar .nav-item > .nav-link{
+    color: #7E5137;
+}
+
+.content-wrapper{
+    background-color: #FBF8F7;
+}
+
+[class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link{
+    color: #7E5137;
+}
+
+[class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link:hover{
+    background-color: #B47654;
+}
+
+.sidebar-dark-cyan .nav-sidebar > .nav-item > .nav-link:hover{
+    background-color: #B47654;
+}
+
+.responsive-iframe{
+    min-width: 1520px;
+    min-height: 800px;
+    margin-top: 3px;
+}
+
+.logo-xl{
+    height: 40px;
+    margin-left: 30%;
+}
+
+#videoinun{
+    text-align: center;
+    padding-top: 10px;
+}
+
+#video-body1, #video-body2, #video-body3, #video-body4, #video-body5{
+    padding: 0px;
+    background-color: transparent;
+}
+
+#video-header1, #video-header2, #video-header3, #video-header4{
+    padding: .1rem .1rem;
+    background-color: #910622;
+    color: #fff;
+    font-weight: bold;
+}
+#video-footer{
+    background-color: transparent;
+}

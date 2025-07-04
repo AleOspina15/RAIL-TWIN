@@ -1,0 +1,2 @@
+* * * * * cd /var/www/app && /usr/local/bin/php artisan run:task >> /var/www/schedule.log 2>&1
+# line
