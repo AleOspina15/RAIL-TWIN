@@ -2,7 +2,7 @@
 
 ## Instalación
 `````
-git clone https://github.com/TIDOP-USAL/aicedrone-sdi.git
+git clone https://github.com/AleOspina15/RAIL-TWIN.git
 
 cd rail-twin
 `````
