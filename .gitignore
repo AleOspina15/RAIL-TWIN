@@ -25,3 +25,4 @@ yarn-error.log
 /docker/postgresql/data
 /docker/earthengine-server-nodejs/*
 /docker/php/aicedronesdi_filemanager/Proyectos/*
+/public/videos/*

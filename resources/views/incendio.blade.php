@@ -13,6 +13,18 @@
 @stop
 
 @section('content')
+<div class="card">
+    <div class="card-body" id="video-body1">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="videoinun" role="tabpanel">
+                <video width="60%" controls>
+                    <source src="{{ asset('videos/Incendio.mp4') }}" type="video/mp4">
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
 @stop
 
 @section('css')
